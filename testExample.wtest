@@ -1,9 +1,23 @@
-import example.pepita
-
+import intensamente.*
 describe "group of tests for pepita" {
 
-  test "pepita has initial energy" {
-    assert.equals(100, pepita.energy())
+
+  test "6" {
+    const evento = new Evento(impacto=10, descripcion="hola")
+    const emocion1 = new Furia(palabrotas=["AAAAAAAAAAAA"]) 
+    const emocion2 = new Furia(palabrotas=["B"])
+    const emocion3 = new Furia(palabrotas=["EWFFFFFFEFWEWFWE"])
+    const eitan = new Persona(edad=10, emociones=[emocion1,emocion2])
+    const ramiro = new Persona(edad=1, emociones=[emocion1])
+    const grupo = new Grupo(integrantes=[eitan,ramiro])
+    grupo.vivirEvento(evento)
+    
+    //la emocion 1 se vivio dos veces una por ramiro y otra por eitan mientras q la emocion 2 1 sola vez
+    assert.equals(2, emocion1.cantidadEventos())
+    assert.equals(480, emocion1.intensidad())
+    assert.equals(500, emocion2.intensidad())
+    assert.equals(1, emocion2.cantidadEventos())
   }
+
 
 }
